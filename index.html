@@ -3,209 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affiliate Tech Hot List</title>
+    <title>Forge & Frame | Custom PC Gaming Blog</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind for a dark, professional theme -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-bg': '#0f172a', // Slate 900
-                        'secondary-bg': '#1e293b', // Slate 800
-                        'accent': '#6366f1', // Indigo 500
-                        'text-light': '#f1f5f9', // Slate 100
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        /* Custom scrollbar for a sleek dark theme */
-        body::-webkit-scrollbar {
-            width: 8px;
+        /* Custom Dark Mode Styling using Inter font and dark gray */
+        :root {
+            --color-bg-dark: #1A1A1A;
+            --color-surface-dark: #242424;
+            --color-accent: #22D3EE; /* Tailwind's cyan-400 */
         }
-        body::-webkit-scrollbar-track {
-            background: #0f172a;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-dark);
+            color: #E0E0E0; /* Off-white for better readability in dark mode */
         }
-        body::-webkit-scrollbar-thumb {
-            background-color: #334155;
-            border-radius: 20px;
-            border: 2px solid #0f172a;
+        /* Style for the sidebar/card surfaces */
+        .card-surface {
+            background-color: var(--color-surface-dark);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+        }
+        .text-accent {
+            color: var(--color-accent);
+        }
+        .border-accent {
+            border-color: var(--color-accent);
+        }
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: #1A1A1A;
+            transition: background-color 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #06B6D4; /* A slightly darker cyan */
         }
     </style>
 </head>
-<body class="bg-primary-bg font-sans min-h-screen text-text-light transition-colors duration-500">
+<body class="min-h-screen pt-16">
 
-    <div id="app" class="max-w-7xl mx-auto">
-        <!-- Navigation Bar -->
-        <header class="sticky top-0 z-50 bg-secondary-bg/90 backdrop-blur-sm shadow-xl border-b border-accent/20">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-                <a href="#" onclick="showPage('hotlist-page')" class="text-2xl font-extrabold text-accent hover:text-white transition-colors">
-                    TechTrend Watch
-                </a>
-                <div class="flex space-x-4">
-                    <button id="nav-hotlist" onclick="showPage('hotlist-page')" class="nav-button font-medium px-3 py-2 rounded-full bg-accent text-white shadow-lg transition-all hover:bg-indigo-600">
-                        🔥 Top 10 Hot List
-                    </button>
-                    <button id="nav-blog" onclick="showPage('blog-page')" class="nav-button font-medium px-3 py-2 rounded-full text-text-light hover:bg-secondary-bg/50 transition-colors">
-                        📰 Tech Blog
-                    </button>
-                </div>
+    <!-- Header & Navigation Bar (Fixed Top) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo/Title -->
+            <a href="#" class="text-3xl font-extrabold tracking-tight text-accent">
+                Forge & Frame
+            </a>
+            
+            <!-- Navigation Links (Hidden on small screens, shown as full text on medium/large) -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#" class="text-gray-300 hover:text-accent transition duration-150">Build Guides</a>
+                <a href="#" class="text-gray-300 hover:text-accent transition duration-150">Reviews</a>
+                <a href="#" class="text-gray-300 hover:text-accent transition duration-150">Industry News</a>
+                <a href="#" class="text-gray-300 hover:text-accent transition duration-150">Gear Guides</a> <!-- Updated from 'Affiliates' -->
             </nav>
-        </header>
 
-        <!-- Main Content Area -->
-        <main class="p-4 sm:p-6 lg:p-8">
+            <!-- Search Icon (Placeholder) -->
+            <button class="text-gray-300 hover:text-accent md:hidden">
+                <!-- Search Icon SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
 
-            <!-- 1. Hot List Page (Default View) -->
-            <section id="hotlist-page" class="page-content">
-                <h1 class="text-4xl sm:text-5xl font-bold text-center mb-10 text-text-light">
-                    Weekly Tech Hot List <span class="text-accent">| Q4 2025</span>
-                </h1>
-                <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
-                    The top 10 trending and best-selling tech products, updated weekly from our affiliate data feeds. Get the edge on what's hot right now in PCs, Mobile, and Gaming.
-                </p>
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-                <div id="product-list" class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    <!-- Products will be injected here by JavaScript -->
-                </div>
-            </section>
+            <!-- Primary Content Area (Articles) -->
+            <div class="lg:col-span-2 space-y-10">
+                
+                <!-- The affiliate disclosure banner was removed here -->
 
-            <!-- 2. Blog Page -->
-            <section id="blog-page" class="page-content hidden">
-                <h1 class="text-4xl sm:text-5xl font-bold text-center mb-10 text-text-light">
-                    The Tech Watch <span class="text-accent">Blog</span>
-                </h1>
-                <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
-                    In-depth reviews, market analysis, and future trends from our industry experts.
-                </p>
+                <!-- Featured Article -->
+                <article class="card-surface rounded-xl p-6 transition transform hover:shadow-lg hover:scale-[1.005]">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold uppercase rounded-full bg-accent bg-opacity-20 text-accent mb-4">Featured Build</span>
+                    <h2 class="text-4xl font-bold mb-3 leading-tight">
+                        The Rise of the SFF: Why High-Performance Mini Gaming PCs are the Future
+                    </h2>
+                    <p class="text-gray-400 text-sm mb-6">By Max Power | October 24, 2025 | 8 min read</p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Mini Gaming PCs are experiencing a sales surge despite fluctuating search interest, signaling a consistent, high-demand market for compact powerhouses. We dive into the latest component trends—from addressing reported performance bottlenecks to finding efficient, silent cooling solutions—that are defining the 2025 SFF landscape. If you're looking for a powerful rig that doesn't dominate your desk space, the Small Form Factor (SFF) revolution is here.
+                    </p>
+                    <a href="#" class="text-accent font-medium hover:text-cyan-300 flex items-center">
+                        Read Full Analysis
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </a>
+                </article>
 
-                <div id="blog-posts" class="space-y-12">
-                    <!-- Blog Posts will be injected here by JavaScript -->
-                </div>
-            </section>
-        </main>
+                <!-- Recent Articles Section -->
+                <h3 class="text-2xl font-bold text-gray-200 mt-10 mb-6 border-b border-gray-700 pb-2">Latest Deep Dives</h3>
 
-        <!-- Footer -->
-        <footer class="mt-20 py-8 text-center border-t border-secondary-bg text-gray-400">
-            <p>&copy; 2025 TechTrend Watch | All rights reserved. Affiliate links may earn us a commission.</p>
-        </footer>
-    </div>
-
-    <script>
-        // --- MOCK DATA SIMULATING AFFILIATE FEED ---
-        const trendingProducts = [
-            { rank: 1, title: "Zenith Core i9 Gaming PC", category: "Gaming PC", description: "Unmatched performance with NVIDIA RTX 5080. The competitive gamer's choice.", image: "https://placehold.co/400x250/334155/f8fafc?text=GAMING+PC" },
-            { rank: 2, title: "Aura 7 Ultrawide Monitor", category: "Monitor", description: "34-inch curved display with 165Hz refresh rate and HDR support. Stunning visuals.", image: "https://placehold.co/400x250/334155/f8fafc?text=MONITOR" },
-            { rank: 3, title: "SleekPad Pro 2025", category: "Laptop/Computer", description: "Ultra-thin chassis, 24-hour battery life. Ideal for creative professionals on the go.", image: "https://placehold.co/400x250/334155/f8fafc?text=LAPTOP" },
-            { rank: 4, title: "MechPro Silent Keyboard", category: "Keyboard", description: "Tactile brown switches with sound dampening. Professional typing experience.", image: "https://placehold.co/400x250/334155/f8fafc?text=KEYBOARD" },
-            { rank: 5, title: "Apex Glide Wireless Mouse", category: "Mouse", description: "Sub-50 gram weight and 300-hour battery. Perfect for FPS enthusiasts.", image: "https://placehold.co/400x250/334155/f8fafc?text=MOUSE" },
-            { rank: 6, title: "Spectra Pro Mobile (5G)", category: "Mobile Phone", description: "Newest flagship with 200MP camera and custom chipset. Best battery in its class.", image: "https://placehold.co/400x250/334155/f8fafc?text=MOBILE" },
-            { rank: 7, title: "ErgoWave Mechanical", category: "Keyboard", description: "Split ergonomic design for comfort and productivity. Reduces wrist strain.", image: "https://placehold.co/400x250/334155/f8fafc?text=KEYBOARD+ERGO" },
-            { rank: 8, title: "4K Clarity Monitor 27\"", category: "Monitor", description: "Affordable 4K monitor for designers and budget-conscious gamers.", image: "https://placehold.co/400x250/334155/f8fafc?text=4K+MONITOR" },
-            { rank: 9, title: "Pocket Rocket Mini PC", category: "Computer", description: "Tiny desktop PC with surprising power for office work and media consumption.", image: "https://placehold.co/400x250/334155/f8fafc?text=MINI+PC" },
-            { rank: 10, title: "Force Feedback Mouse", category: "Mouse", description: "Haptic feedback for immersive gaming. A truly unique peripheral experience.", image: "https://placehold.co/400x250/334155/f8fafc?text=HAPTIC+MOUSE" },
-        ];
-
-        const mockBlogPosts = [
-            // --- NEW POST ADDED FROM USER CONTENT ---
-            { title: "The State of the Custom PC Gaming Industry", summary: "After years of volatility, the custom PC building world has settled into a new normal defined by unprecedented power, stable pricing, and an intense focus on aesthetics.", date: "Oct 24, 2025" },
-            // --- EXISTING POSTS ---
-            { title: "The Future of Gaming PCs: Liquid Cooling vs. Airflow", summary: "We dive deep into the next generation of PC thermal management and determine what truly delivers better performance under load.", date: "Oct 20, 2025" },
-            { title: "Mobile Photography Wars: Is 200MP Overkill?", summary: "An honest look at the latest mobile camera sensors and whether high megapixel counts translate to better real-world photos.", date: "Oct 15, 2025" },
-            { title: "Choosing Your First Mechanical Keyboard: A Buyer's Guide", summary: "From linear to clicky switches, this guide breaks down the essential terminology for new keyboard enthusiasts.", date: "Oct 10, 2025" },
-        ];
-
-
-        /**
-         * Renders the product list dynamically.
-         */
-        function renderHotList() {
-            const container = document.getElementById('product-list');
-            container.innerHTML = trendingProducts.map(product => `
-                <div class="product-card bg-secondary-bg rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border border-gray-700 hover:border-accent">
-                    <!-- Rank Badge -->
-                    <div class="absolute top-0 left-0 bg-accent text-white px-4 py-2 rounded-br-lg font-black text-xl z-10">
-                        #${product.rank}
+                <div class="space-y-6">
+                    <!-- Article 1 -->
+                    <div class="card-surface rounded-xl p-5 md:flex transition hover:bg-gray-700">
+                        <div class="md:w-3/4">
+                            <h4 class="text-xl font-semibold mb-2 text-accent hover:text-cyan-300">
+                                Unlocking FPS: The AI Optimization Revolution in PC Gaming
+                            </h4>
+                            <p class="text-gray-400 text-sm mb-3">October 19, 2025 | Reviews</p>
+                            <p class="text-gray-300 hidden sm:block">
+                                AI is no longer just for rendering; it's actively optimizing our gaming experience. We test the latest GPU software that uses machine learning to dynamically manage frame rates, latency, and power consumption, achieving incredible performance boosts.
+                            </p>
+                            <a href="#" class="text-accent font-medium text-sm mt-3 inline-block">See Test Results &rarr;</a>
+                        </div>
                     </div>
 
-                    <!-- Product Image (Placeholder) -->
-                    <div class="h-40 overflow-hidden bg-gray-700">
-                        <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover transition-opacity duration-300 hover:opacity-80"
-                             onerror="this.onerror=null; this.src='https://placehold.co/400x250/0f172a/f1f5f9?text=Image+Not+Found'">
+                    <!-- Article 2 -->
+                    <div class="card-surface rounded-xl p-5 md:flex transition hover:bg-gray-700">
+                        <div class="md:w-3/4">
+                            <h4 class="text-xl font-semibold mb-2 text-accent hover:text-cyan-300">
+                                DDR5 vs. DDR6: Is the Memory Upgrade Worth the Cost in 2026?
+                            </h4>
+                            <p class="text-gray-400 text-sm mb-3">October 12, 2025 | Build Guides</p>
+                            <p class="text-gray-300 hidden sm:block">
+                                Component price volatility makes buying decisions tough. We break down the real-world gaming performance difference between current high-speed DDR5 kits and the emerging DDR6 standard to help you budget your next custom build.
+                            </p>
+                            <a href="#" class="text-accent font-medium text-sm mt-3 inline-block">View Performance Chart &rarr;</a>
+                        </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="p-6">
-                        <h2 class="text-2xl font-bold mb-2 text-text-light">${product.title}</h2>
-                        <span class="inline-block bg-accent/20 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-4">${product.category}</span>
-                        <p class="text-gray-300 mb-4 text-sm">${product.description}</p>
-                        
-                        <!-- Affiliate Link Button -->
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-accent text-white font-semibold py-3 rounded-lg shadow-md hover:bg-indigo-600 transition-colors duration-200">
-                            View Deal
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            <!-- Sidebar (Replaced Affiliate Card) -->
+            <div class="space-y-8">
+                
+                <!-- Recommended Gear Card (Replaces Affiliate Spotlight) -->
+                <div class="card-surface rounded-xl p-5">
+                    <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+                        Component Recommendation
+                    </h3>
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-semibold text-accent">The Q4 Titan Build: RTX 5080 Ready</h4>
+                        <p class="text-gray-400 text-sm">
+                            Our current top recommendation for high-end builds. This list balances performance, aesthetics, and value. Check out the components we recommend for ultimate 4K performance.
+                        </p>
+                        <a href="#" class="btn-primary w-full block text-center py-2 rounded-lg font-bold shadow-md transition transform hover:scale-[1.01]">
+                            View Component List &rarr;
                         </a>
                     </div>
                 </div>
-            `).join('');
-        }
 
-        /**
-         * Renders the blog posts dynamically.
-         */
-        function renderBlog() {
-            const container = document.getElementById('blog-posts');
-            container.innerHTML = mockBlogPosts.map(post => `
-                <div class="blog-card bg-secondary-bg p-6 rounded-xl shadow-2xl border border-gray-700 transition-all hover:bg-secondary-bg/80">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                        <h2 class="text-3xl font-bold text-accent mb-2 md:mb-0">${post.title}</h2>
-                        <span class="text-sm text-gray-400 border border-gray-600 px-3 py-1 rounded-full">${post.date}</span>
-                    </div>
-                    <p class="mt-4 text-gray-300 text-lg">${post.summary}</p>
-                    <a href="#" class="mt-4 inline-block text-accent font-semibold hover:text-indigo-400 transition-colors">
-                        View Article &rarr;
-                    </a>
+                <!-- Trending Topics Card -->
+                <div class="card-surface rounded-xl p-5">
+                    <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">Trending Topics</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-300 hover:text-accent transition duration-150 cursor-pointer text-base">
+                            <span class="text-accent font-bold mr-2">#1</span> Quiet Cooling Solutions for Custom Desktops
+                        </li>
+                        <li class="text-gray-300 hover:text-accent transition duration-150 cursor-pointer text-base">
+                            <span class="text-accent font-bold mr-2">#2</span> eSports Growth & Hardware Demands
+                        </li>
+                        <li class="text-gray-300 hover:text-accent transition duration-150 cursor-pointer text-base">
+                            <span class="text-accent font-bold mr-2">#3</span> Best Budget Gaming Peripherals 2025
+                        </li>
+                        <li class="text-gray-300 hover:text-accent transition duration-150 cursor-pointer text-base">
+                            <span class="text-accent font-bold mr-2">#4</span> Windows 11 Compatibility for DIY Builds
+                        </li>
+                    </ul>
                 </div>
-            `).join('');
-        }
+            </div>
 
-        /**
-         * Handles the page switching logic.
-         * @param {string} pageId - The ID of the page to show ('hotlist-page' or 'blog-page').
-         */
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page-content');
-            pages.forEach(page => {
-                page.classList.add('hidden');
-            });
-            document.getElementById(pageId).classList.remove('hidden');
+        </div>
+    </main>
 
-            // Update navigation button styles
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('bg-accent', 'text-white');
-                button.classList.add('text-text-light', 'hover:bg-secondary-bg/50');
-            });
-
-            const activeButton = document.getElementById('nav-' + pageId.replace('-page', ''));
-            if (activeButton) {
-                activeButton.classList.add('bg-accent', 'text-white');
-                activeButton.classList.remove('text-text-light', 'hover:bg-secondary-bg/50');
-            }
-        }
-
-        // --- Initialization ---
-        document.addEventListener('DOMContentLoaded', () => {
-            renderHotList();
-            renderBlog();
-            // Default to showing the Hot List page and setting button styles
-            showPage('hotlist-page');
-        });
-    </script>
+    <!-- Footer -->
+    <footer class="bg-gray-900 mt-12 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 Forge & Frame. All rights reserved.</p>
+            <div class="mt-2 space-x-4">
+                <a href="#" class="hover:text-accent transition duration-150">Privacy Policy</a>
+                <span class="text-gray-700">|</span>
+                <a href="#" class="hover:text-accent transition duration-150">Contact Us</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
