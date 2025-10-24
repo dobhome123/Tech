@@ -38,6 +38,33 @@
         .btn-primary:hover {
             background-color: #06B6D4; /* A slightly darker cyan */
         }
+        /* These styles are no longer needed on the index page, but kept for consistency if needed later */
+        .prose h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 2rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #E0E0E0;
+        }
+        .prose h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: var(--color-accent);
+        }
+        .prose p, .prose ul {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #B0B0B0;
+        }
+        .prose ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body class="min-h-screen pt-16">
@@ -78,18 +105,22 @@
                 
                 <!-- The affiliate disclosure banner was removed here -->
 
-                <!-- Featured Article -->
+                <!-- FEATURED ARTICLE: GPU Industry Blog Post (Truncated) -->
                 <article class="card-surface rounded-xl p-6 transition transform hover:shadow-lg hover:scale-[1.005]">
-                    <span class="inline-block px-3 py-1 text-xs font-semibold uppercase rounded-full bg-accent bg-opacity-20 text-accent mb-4">Featured Build</span>
-                    <h2 class="text-4xl font-bold mb-3 leading-tight">
-                        The Rise of the SFF: Why High-Performance Mini Gaming PCs are the Future
-                    </h2>
-                    <p class="text-gray-400 text-sm mb-6">By Max Power | October 24, 2025 | 8 min read</p>
+                    <span class="inline-block px-3 py-1 text-xs font-semibold uppercase rounded-full bg-accent bg-opacity-20 text-accent mb-4">Industry Deep Dive</span>
+                    <h1 class="text-4xl font-bold mb-3 leading-tight text-white">
+                        The AI-Powered Arms Race: How GPUs Are Redefining Custom PC Gaming
+                    </h1>
+                    <p class="text-gray-400 text-sm mb-6">By Gemini | October 25, 2025 | 10 min read</p>
+                    
+                    <!-- TRUNCATED EXCERPT -->
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        Mini Gaming PCs are experiencing a sales surge despite fluctuating search interest, signaling a consistent, high-demand market for compact powerhouses. We dive into the latest component trends—from addressing reported performance bottlenecks to finding efficient, silent cooling solutions—that are defining the 2025 SFF landscape. If you're looking for a powerful rig that doesn't dominate your desk space, the Small Form Factor (SFF) revolution is here.
+                        The custom PC building landscape has always been dynamic, but the current generation of graphics processing units (GPUs) is ushering in a transformative era. Forget mere frame rate bumps; today's GPU market is defined by a fierce competition over who can deliver the most intelligent, efficient, and visually stunning gaming experience. If the CPU is the brain of your gaming rig, the GPU is undeniably its powerful, rendering heart.
                     </p>
-                    <a href="#" class="text-accent font-medium hover:text-cyan-300 flex items-center">
-                        Read Full Analysis
+                    
+                    <!-- READ FULL ARTICLE LINK -->
+                    <a href="article.html" target="_blank" class="text-accent font-medium hover:text-cyan-300 flex items-center">
+                        Read Full Article
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                     </a>
                 </article>
@@ -98,7 +129,21 @@
                 <h3 class="text-2xl font-bold text-gray-200 mt-10 mb-6 border-b border-gray-700 pb-2">Latest Deep Dives</h3>
 
                 <div class="space-y-6">
-                    <!-- Article 1 -->
+                    <!-- Article 1 - The old featured article is moved here as a recent article -->
+                    <div class="card-surface rounded-xl p-5 md:flex transition hover:bg-gray-700">
+                        <div class="md:w-3/4">
+                            <h4 class="text-xl font-semibold mb-2 text-accent hover:text-cyan-300">
+                                The Rise of the SFF: Why High-Performance Mini Gaming PCs are the Future
+                            </h4>
+                            <p class="text-gray-400 text-sm mb-3">By Max Power | October 24, 2025 | Build Guides</p>
+                            <p class="text-gray-300 hidden sm:block">
+                                Mini Gaming PCs are experiencing a sales surge, signaling a consistent, high-demand market for compact powerhouses. We dive into the component trends and cooling solutions that are defining the SFF landscape.
+                            </p>
+                            <a href="#" class="text-accent font-medium text-sm mt-3 inline-block">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 2 (Unchanged) -->
                     <div class="card-surface rounded-xl p-5 md:flex transition hover:bg-gray-700">
                         <div class="md:w-3/4">
                             <h4 class="text-xl font-semibold mb-2 text-accent hover:text-cyan-300">
@@ -112,7 +157,7 @@
                         </div>
                     </div>
 
-                    <!-- Article 2 -->
+                    <!-- Article 3 (Unchanged, was Article 2) -->
                     <div class="card-surface rounded-xl p-5 md:flex transition hover:bg-gray-700">
                         <div class="md:w-3/4">
                             <h4 class="text-xl font-semibold mb-2 text-accent hover:text-cyan-300">
@@ -128,7 +173,7 @@
                 </div>
             </div>
 
-            <!-- Sidebar (Replaced Affiliate Card) -->
+            <!-- Sidebar (Unchanged) -->
             <div class="space-y-8">
                 
                 <!-- Recommended Gear Card (Replaces Affiliate Spotlight) -->
