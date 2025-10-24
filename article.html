@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI-Powered Arms Race (Full Article)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Dark Mode Styling using Inter font and dark gray */
+        :root {
+            --color-bg-dark: #1A1A1A;
+            --color-surface-dark: #242424;
+            --color-accent: #22D3EE; /* Tailwind's cyan-400 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-dark);
+            color: #E0E0E0; /* Off-white for better readability in dark mode */
+        }
+        /* Style for the card surfaces (used as the article container here) */
+        .card-surface {
+            background-color: var(--color-surface-dark);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+        }
+        .text-accent {
+            color: var(--color-accent);
+        }
+        
+        /* Typography for the Blog Content (Prose) */
+        .prose h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 2rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #E0E0E0;
+        }
+        .prose h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: var(--color-accent);
+        }
+        .prose p, .prose ul {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #B0B0B0;
+        }
+        .prose ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen pt-12 pb-16">
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href="index.html" class="text-accent font-medium hover:text-cyan-300 flex items-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Forge & Frame
+        </a>
+
+        <!-- FULL ARTICLE CONTENT CONTAINER -->
+        <article class="card-surface rounded-xl p-6 md:p-10">
+            <span class="inline-block px-3 py-1 text-xs font-semibold uppercase rounded-full bg-accent bg-opacity-20 text-accent mb-4">Industry Deep Dive</span>
+            <h1 class="text-4xl font-bold mb-3 leading-tight text-white">
+                The AI-Powered Arms Race: How GPUs Are Redefining Custom PC Gaming
+            </h1>
+            <p class="text-gray-400 text-sm mb-8">By Gemini | October 25, 2025 | 10 min read</p>
+            
+            <div id="blog-content" class="prose">
+                <!-- Full Content will be inserted here by JavaScript -->
+            </div>
+            
+        </article>
+    </main>
+
+    <script>
+        // Content from pc_gaming_gpu_blog.md
+        const blogMarkdown = `# The AI-Powered Arms Race: How GPUs Are Redefining Custom PC Gaming
+
+The custom PC building landscape has always been dynamic, but the current generation of graphics processing units (GPUs) is ushering in a transformative era. Forget mere frame rate bumps; today's GPU market is defined by a fierce competition over who can deliver the most intelligent, efficient, and visually stunning gaming experience.
+
+If the CPU is the brain of your gaming rig, the GPU is undeniably its powerful, rendering heart. Here’s a look at the key trends, the architectural battles, and the crucial features shaping every custom build right now.
+
+## The New Frontier: Blackwell vs. RDNA 4
+
+The rivalry between NVIDIA and AMD remains the defining feature of the hardware ecosystem. Both companies have released new architectures—NVIDIA's Blackwell (RTX 50-Series) and AMD's RDNA 4 (Radeon RX 9000-Series)—and the technology is pushing well beyond rasterization (standard 3D rendering).
+
+1. **The Enthusiast Crown:** At the absolute high end, NVIDIA maintains its performance dominance with the **GeForce RTX 5090**. This monster card, built for uncompromising 4K and even 8K gaming, dictates the maximum performance standard.
+
+2. **The Mid-Range Battleground:** The real excitement, and the fierce price-to-performance competition, happens in the mid-to-high tiers (cards around the $400–$750 range). AMD's Radeon RX 9070 XT and 9070 are incredibly competitive against NVIDIA’s RTX 5070 Ti and 5070. Builders are now forced to weigh the specific benefits of each ecosystem against their budgets, rather than just raw performance metrics.
+
+3. **VRAM is King:** A major shift this generation is the importance of Video RAM (VRAM). With modern AAA games and high-resolution textures, 8GB is quickly becoming the bare minimum, even for 1080p gaming. Mid-range cards like the Radeon RX 9070 and the RTX 5070 Ti now commonly sport **16GB of VRAM**, future-proofing custom builds against the inevitable demand of next-generation titles.
+
+## The AI Revolution: Upscaling Changes Everything
+
+The single most impactful technology in the current GPU landscape isn't related to raw silicon performance, but to **Artificial Intelligence (AI) upscaling and frame generation**. These features fundamentally alter the purchasing calculus for every custom builder.
+
+### DLSS 4 (NVIDIA)
+
+NVIDIA's Deep Learning Super Sampling (DLSS) continues to be the industry gold standard. It uses dedicated **Tensor Cores** (found only on RTX GPUs) to intelligently reconstruct lower-resolution images into stunningly crisp, high-resolution output.
+
+* **Image Quality:** Due to its reliance on deep learning models and motion data, DLSS 4 often achieves visual fidelity nearly indistinguishable from native resolution.
+
+* **Frame Generation:** The newer iterations (DLSS 3 and 4) introduce AI Frame Generation, which synthesizes entirely new, high-quality intermediate frames. This can provide massive performance gains, even in scenarios previously limited by the CPU.
+
+### FSR 4 (AMD)
+
+AMD’s FidelityFX Super Resolution (FSR) is the open-source alternative. While previous versions were purely software-based, the latest **FSR 4** on RDNA 4 architecture now incorporates **AI acceleration** and Frame Interpolation (Fluid Motion Frames).
+
+* **Accessibility:** FSR is hardware-agnostic, meaning it works on older AMD cards, non-RTX NVIDIA cards, and even integrated graphics, democratizing high-resolution gaming.
+
+* **Closing the Gap:** FSR 4 significantly narrows the image quality gap with DLSS, making it a highly compelling choice, especially when paired with AMD's excellent price-to-VRAM ratios.
+
+**The Builder's Takeaway:** AI upscaling means that a card traditionally considered 1440p-only can now deliver excellent performance at 4K resolution. This is perhaps the single most important factor when balancing budget against desired resolution.
+
+## Power, Cooling, and Efficiency
+
+As GPUs have grown in power, they have also grown in size and appetite.
+
+* **Power Consumption:** High-end cards like the RTX 5090 can easily draw 400W or more under load, demanding high-wattage power supplies (PSUs) and robust cooling solutions.
+
+* **Cooling Complexity:** The sheer heat generated necessitates large, multi-fan designs or custom liquid cooling loops. This adds complexity and cost to custom builds, requiring builders to pay closer attention to case airflow and component clearance.
+
+* **Efficiency Matters:** For mid-range builders, power efficiency is a key selling point. The power-to-performance ratio of cards like the RTX 5060 Ti or the Radeon RX 9060 XT offers great performance without requiring excessive cooling or an oversized PSU.
+
+## Conclusion: Building Smarter, Not Just Bigger
+
+The custom PC gaming industry is in a golden age of stability and technological advancement. GPU pricing has normalized, and the market is saturated with excellent options for every budget.
+
+The key to a successful custom build today is leveraging the AI revolution. Instead of simply chasing the highest-tier card you can afford, focus on the GPU that offers the best mix of raw raster performance, VRAM capacity, and **robust support for frame generation technology.**
+
+Are you aiming for high refresh rates at 1440p, or maximum fidelity at 4K? The answer to that question, combined with the power of DLSS and FSR, will determine the perfect heart for your next custom gaming machine.`;
+
+        function renderMarkdownToHtml(markdown) {
+            // Split by double newline for paragraphs/blocks
+            const blocks = markdown.trim().split('\n\n');
+            let html = '';
+
+            blocks.forEach(block => {
+                // Check for H1 (Title - already in H1 tag outside script)
+                if (block.startsWith('# ')) {
+                    // Skip or ignore H1, as it's handled by the HTML structure
+                    return;
+                }
+                
+                // Check for H2
+                if (block.startsWith('## ')) {
+                    html += `<h2>${block.substring(3).trim()}</h2>`;
+                    return;
+                }
+
+                // Check for H3
+                if (block.startsWith('### ')) {
+                    html += `<h3>${block.substring(4).trim()}</h3>`;
+                    return;
+                }
+                
+                // Check for Lists (unordered or ordered, we use <ul> for simplicity here)
+                if (block.trim().startsWith('* ') || block.trim().match(/^\d+\. /)) {
+                    let listHtml = '<ul>';
+                    // Split block into individual lines for list items
+                    block.split('\n').forEach(line => {
+                        let content = line.trim();
+                        if (content.startsWith('* ')) {
+                            content = content.substring(2).trim();
+                        } else if (content.match(/^\d+\. /)) {
+                            content = content.replace(/^\d+\. /, '').trim();
+                        }
+                        
+                        // Simple bolding within list items for key terms
+                        content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                        
+                        if (content) {
+                            listHtml += `<li>${content}</li>`;
+                        }
+                    });
+                    listHtml += '</ul>';
+                    return;
+                }
+                
+                // Default to paragraph, applying simple bold and italics formatting
+                let paragraphContent = block.trim();
+                
+                // Simple bolding (**text**)
+                paragraphContent = paragraphContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                
+                // Simple italics (*text*)
+                paragraphContent = paragraphContent.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                
+                if (paragraphContent.length > 0) {
+                    html += `<p>${paragraphContent}</p>`;
+                }
+            });
+
+            return html;
+        }
+
+        // Insert the content on load
+        window.onload = function() {
+            const contentElement = document.getElementById('blog-content');
+            if (contentElement) {
+                contentElement.innerHTML = renderMarkdownToHtml(blogMarkdown);
+            }
+        };
+    </script>
+
+</body>
+</html>
