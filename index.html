@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Tech Hot List</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for a dark, professional theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': '#0f172a', // Slate 900
+                        'secondary-bg': '#1e293b', // Slate 800
+                        'accent': '#6366f1', // Indigo 500
+                        'text-light': '#f1f5f9', // Slate 100
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a sleek dark theme */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #334155;
+            border-radius: 20px;
+            border: 2px solid #0f172a;
+        }
+    </style>
+</head>
+<body class="bg-primary-bg font-sans min-h-screen text-text-light transition-colors duration-500">
+
+    <div id="app" class="max-w-7xl mx-auto">
+        <!-- Navigation Bar -->
+        <header class="sticky top-0 z-50 bg-secondary-bg/90 backdrop-blur-sm shadow-xl border-b border-accent/20">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+                <a href="#" onclick="showPage('hotlist-page')" class="text-2xl font-extrabold text-accent hover:text-white transition-colors">
+                    TechTrend Watch
+                </a>
+                <div class="flex space-x-4">
+                    <button id="nav-hotlist" onclick="showPage('hotlist-page')" class="nav-button font-medium px-3 py-2 rounded-full bg-accent text-white shadow-lg transition-all hover:bg-indigo-600">
+                        🔥 Top 10 Hot List
+                    </button>
+                    <button id="nav-blog" onclick="showPage('blog-page')" class="nav-button font-medium px-3 py-2 rounded-full text-text-light hover:bg-secondary-bg/50 transition-colors">
+                        📰 Tech Blog
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="p-4 sm:p-6 lg:p-8">
+
+            <!-- 1. Hot List Page (Default View) -->
+            <section id="hotlist-page" class="page-content">
+                <h1 class="text-4xl sm:text-5xl font-bold text-center mb-10 text-text-light">
+                    Weekly Tech Hot List <span class="text-accent">| Q4 2025</span>
+                </h1>
+                <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+                    The top 10 trending and best-selling tech products, updated weekly from our affiliate data feeds. Get the edge on what's hot right now in PCs, Mobile, and Gaming.
+                </p>
+
+                <div id="product-list" class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <!-- Products will be injected here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- 2. Blog Page -->
+            <section id="blog-page" class="page-content hidden">
+                <h1 class="text-4xl sm:text-5xl font-bold text-center mb-10 text-text-light">
+                    The Tech Watch <span class="text-accent">Blog</span>
+                </h1>
+                <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+                    In-depth reviews, market analysis, and future trends from our industry experts.
+                </p>
+
+                <div id="blog-posts" class="space-y-12">
+                    <!-- Blog Posts will be injected here by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-20 py-8 text-center border-t border-secondary-bg text-gray-400">
+            <p>&copy; 2025 TechTrend Watch | All rights reserved. Affiliate links may earn us a commission.</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- MOCK DATA SIMULATING AFFILIATE FEED ---
+        const trendingProducts = [
+            { rank: 1, title: "Zenith Core i9 Gaming PC", category: "Gaming PC", description: "Unmatched performance with NVIDIA RTX 5080. The competitive gamer's choice.", image: "https://placehold.co/400x250/334155/f8fafc?text=GAMING+PC" },
+            { rank: 2, title: "Aura 7 Ultrawide Monitor", category: "Monitor", description: "34-inch curved display with 165Hz refresh rate and HDR support. Stunning visuals.", image: "https://placehold.co/400x250/334155/f8fafc?text=MONITOR" },
+            { rank: 3, title: "SleekPad Pro 2025", category: "Laptop/Computer", description: "Ultra-thin chassis, 24-hour battery life. Ideal for creative professionals on the go.", image: "https://placehold.co/400x250/334155/f8fafc?text=LAPTOP" },
+            { rank: 4, title: "MechPro Silent Keyboard", category: "Keyboard", description: "Tactile brown switches with sound dampening. Professional typing experience.", image: "https://placehold.co/400x250/334155/f8fafc?text=KEYBOARD" },
+            { rank: 5, title: "Apex Glide Wireless Mouse", category: "Mouse", description: "Sub-50 gram weight and 300-hour battery. Perfect for FPS enthusiasts.", image: "https://placehold.co/400x250/334155/f8fafc?text=MOUSE" },
+            { rank: 6, title: "Spectra Pro Mobile (5G)", category: "Mobile Phone", description: "Newest flagship with 200MP camera and custom chipset. Best battery in its class.", image: "https://placehold.co/400x250/334155/f8fafc?text=MOBILE" },
+            { rank: 7, title: "ErgoWave Mechanical", category: "Keyboard", description: "Split ergonomic design for comfort and productivity. Reduces wrist strain.", image: "https://placehold.co/400x250/334155/f8fafc?text=KEYBOARD+ERGO" },
+            { rank: 8, title: "4K Clarity Monitor 27\"", category: "Monitor", description: "Affordable 4K monitor for designers and budget-conscious gamers.", image: "https://placehold.co/400x250/334155/f8fafc?text=4K+MONITOR" },
+            { rank: 9, title: "Pocket Rocket Mini PC", category: "Computer", description: "Tiny desktop PC with surprising power for office work and media consumption.", image: "https://placehold.co/400x250/334155/f8fafc?text=MINI+PC" },
+            { rank: 10, title: "Force Feedback Mouse", category: "Mouse", description: "Haptic feedback for immersive gaming. A truly unique peripheral experience.", image: "https://placehold.co/400x250/334155/f8fafc?text=HAPTIC+MOUSE" },
+        ];
+
+        const mockBlogPosts = [
+            { title: "The Future of Gaming PCs: Liquid Cooling vs. Airflow", summary: "We dive deep into the next generation of PC thermal management and determine what truly delivers better performance under load.", date: "Oct 20, 2025" },
+            { title: "Mobile Photography Wars: Is 200MP Overkill?", summary: "An honest look at the latest mobile camera sensors and whether high megapixel counts translate to better real-world photos.", date: "Oct 15, 2025" },
+            { title: "Choosing Your First Mechanical Keyboard: A Buyer's Guide", summary: "From linear to clicky switches, this guide breaks down the essential terminology for new keyboard enthusiasts.", date: "Oct 10, 2025" },
+        ];
+
+
+        /**
+         * Renders the product list dynamically.
+         */
+        function renderHotList() {
+            const container = document.getElementById('product-list');
+            container.innerHTML = trendingProducts.map(product => `
+                <div class="product-card bg-secondary-bg rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border border-gray-700 hover:border-accent">
+                    <!-- Rank Badge -->
+                    <div class="absolute top-0 left-0 bg-accent text-white px-4 py-2 rounded-br-lg font-black text-xl z-10">
+                        #${product.rank}
+                    </div>
+
+                    <!-- Product Image (Placeholder) -->
+                    <div class="h-40 overflow-hidden bg-gray-700">
+                        <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover transition-opacity duration-300 hover:opacity-80"
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x250/0f172a/f1f5f9?text=Image+Not+Found'">
+                    </div>
+
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2 text-text-light">${product.title}</h2>
+                        <span class="inline-block bg-accent/20 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-4">${product.category}</span>
+                        <p class="text-gray-300 mb-4 text-sm">${product.description}</p>
+                        
+                        <!-- Affiliate Link Button -->
+                        <a href="#" class="inline-flex items-center justify-center w-full bg-accent text-white font-semibold py-3 rounded-lg shadow-md hover:bg-indigo-600 transition-colors duration-200">
+                            View Deal
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /**
+         * Renders the blog posts dynamically.
+         */
+        function renderBlog() {
+            const container = document.getElementById('blog-posts');
+            container.innerHTML = mockBlogPosts.map(post => `
+                <div class="blog-card bg-secondary-bg p-6 rounded-xl shadow-2xl border border-gray-700 transition-all hover:bg-secondary-bg/80">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <h2 class="text-3xl font-bold text-accent mb-2 md:mb-0">${post.title}</h2>
+                        <span class="text-sm text-gray-400 border border-gray-600 px-3 py-1 rounded-full">${post.date}</span>
+                    </div>
+                    <p class="mt-4 text-gray-300 text-lg">${post.summary}</p>
+                    <a href="#" class="mt-4 inline-block text-accent font-semibold hover:text-indigo-400 transition-colors">
+                        View Article &rarr;
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        /**
+         * Handles the page switching logic.
+         * @param {string} pageId - The ID of the page to show ('hotlist-page' or 'blog-page').
+         */
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+
+            // Update navigation button styles
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('bg-accent', 'text-white');
+                button.classList.add('text-text-light', 'hover:bg-secondary-bg/50');
+            });
+
+            const activeButton = document.getElementById('nav-' + pageId.replace('-page', ''));
+            if (activeButton) {
+                activeButton.classList.add('bg-accent', 'text-white');
+                activeButton.classList.remove('text-text-light', 'hover:bg-secondary-bg/50');
+            }
+        }
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHotList();
+            renderBlog();
+            // Default to showing the Hot List page and setting button styles
+            showPage('hotlist-page');
+        });
+    </script>
+
+</body>
+</html>
